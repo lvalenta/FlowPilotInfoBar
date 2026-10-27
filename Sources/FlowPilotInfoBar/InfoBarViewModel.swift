@@ -93,8 +93,8 @@ open class InfoBarViewModel<InfoBarContent>: ObservableObject {
     ) {
         self.content = content
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Int(seconds))) {
-            self.isMessageShown = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Int(seconds))) { [weak self] in
+            self?.isMessageShown = false
         }
     }
 
